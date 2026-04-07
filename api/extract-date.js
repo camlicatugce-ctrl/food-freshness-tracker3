@@ -1,4 +1,9 @@
 export default async function handler(req, res) {
+  console.log('=== API Request Received ===');
+  console.log('Method:', req.method);
+  console.log('API Key exists:', !!process.env.ANTHROPIC_API_KEY);
+  console.log('API Key length:', process.env.ANTHROPIC_API_KEY?.length);
+  
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -12,7 +17,11 @@ export default async function handler(req, res) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
  
   if (!apiKey) {
-    return res.status(500).json({ error: 'API key not configured' });
+    console.error('ERROR: ANTHROPIC_API_KEY not found in environment variables');
+    return res.status(500).json({ 
+      error: 'API key not configured',
+      details: 'ANTHROPIC_API_KEY environment variable is missing'
+    });
   }
  
   try {
@@ -20,6 +29,9 @@ export default async function handler(req, res) {
     if (imageData.includes('base64,')) {
       base64Image = imageData.split('base64,')[1];
     }
+ 
+    console.log('Calling Claude API...');
+    console.log('Image size:', base64Image.length, 'bytes');
  
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -45,7 +57,7 @@ export default async function handler(req, res) {
               },
               {
                 type: 'text',
-                text: `Look at this image of a food product package. Find and extract ONLY the expiration date, best-by date, use-by date, or sell-by date. 
+                text: `Look at this image. Find and extract ONLY the expiration date, best-by date, use-by date, or sell-by date. 
  
 Return ONLY the date in this exact format: "Month Day, Year" (example: "Dec 15, 2024")
  
@@ -57,15 +69,20 @@ If you cannot find any date, respond with: "DATE_NOT_FOUND"`,
       }),
     });
  
+    console.log('Claude API Response Status:', response.status);
+ 
     const data = await response.json();
  
     if (!response.ok) {
-      console.error('Claude API error:', data);
+      console.error('Claude API Error:', data);
       return res.status(500).json({
         error: 'Failed to process image',
-        details: data.error?.message || 'Unknown error',
+        details: data.error?.message || 'Unknown error from Claude API',
+        claudeError: data.error,
       });
     }
+ 
+    console.log('Claude Response:', data.content[0]?.text);
  
     const detectedDate = data.content[0]?.text?.trim() || 'DATE_NOT_FOUND';
  
@@ -75,10 +92,12 @@ If you cannot find any date, respond with: "DATE_NOT_FOUND"`,
       found: detectedDate !== 'DATE_NOT_FOUND',
     });
   } catch (error) {
-    console.error('Error processing image:', error);
+    console.error('Backend Error:', error.message);
+    console.error('Full Error:', error);
     return res.status(500).json({
       error: 'Failed to process image',
       details: error.message,
+      type: error.constructor.name,
     });
   }
 }
