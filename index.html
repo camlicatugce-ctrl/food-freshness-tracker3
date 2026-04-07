@@ -10,38 +10,38 @@
       padding: 0;
       box-sizing: border-box;
     }
-
+ 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       background: #f5f5f5;
       color: #333;
       line-height: 1.6;
     }
-
+ 
     .container {
       max-width: 600px;
       margin: 0 auto;
       padding: 16px;
     }
-
+ 
     .header {
       background: #f0f0f0;
       border-radius: 12px;
       padding: 24px;
       margin-bottom: 24px;
     }
-
+ 
     .header h1 {
       font-size: 22px;
       font-weight: 500;
       margin-bottom: 8px;
     }
-
+ 
     .header p {
       font-size: 14px;
       color: #666;
     }
-
+ 
     .card {
       background: white;
       border: 0.5px solid #e0e0e0;
@@ -49,20 +49,20 @@
       padding: 20px;
       margin-bottom: 24px;
     }
-
+ 
     .card h2 {
       font-size: 16px;
       font-weight: 500;
       margin-bottom: 16px;
     }
-
+ 
     .button-group {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-bottom: 16px;
     }
-
+ 
     button {
       padding: 12px;
       background: white;
@@ -73,25 +73,25 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-
+ 
     button:hover {
       background: #f9f9f9;
       border-color: #999;
     }
-
+ 
     button:active {
       transform: scale(0.98);
     }
-
+ 
     button:disabled {
       opacity: 0.6;
       cursor: not-allowed;
     }
-
+ 
     .input-group {
       margin-bottom: 12px;
     }
-
+ 
     label {
       display: block;
       font-size: 13px;
@@ -99,7 +99,7 @@
       margin-bottom: 6px;
       font-weight: 500;
     }
-
+ 
     input, select {
       width: 100%;
       padding: 8px 12px;
@@ -108,25 +108,36 @@
       font-size: 14px;
       font-family: inherit;
     }
-
+ 
     input:focus, select:focus {
       outline: none;
       border-color: #999;
       box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
     }
-
-    video, canvas {
+ 
+    video {
+      width: 100%;
+      height: 400px;
+      border-radius: 8px;
+      background: #000;
+      margin-bottom: 16px;
+      display: block;
+      object-fit: cover;
+    }
+ 
+    canvas {
       width: 100%;
       border-radius: 8px;
       background: black;
       margin-bottom: 16px;
+      display: none;
     }
-
+ 
     .camera-placeholder {
       width: 100%;
-      aspect-ratio: 1;
+      height: 400px;
       border-radius: 8px;
-      background: #f0f0f0;
+      background: #333;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -134,11 +145,11 @@
       font-size: 14px;
       margin-bottom: 16px;
     }
-
+ 
     .hidden {
-      display: none;
+      display: none !important;
     }
-
+ 
     .status {
       background: #f0f0f0;
       padding: 16px;
@@ -146,38 +157,38 @@
       margin-bottom: 16px;
       text-align: center;
     }
-
+ 
     .status p {
       font-size: 14px;
       color: #333;
       margin-bottom: 8px;
     }
-
+ 
     .progress-bar {
       height: 3px;
       background: #ddd;
       border-radius: 2px;
       overflow: hidden;
     }
-
+ 
     .progress-fill {
       height: 100%;
       background: #0066cc;
       animation: pulse 1.5s ease-in-out infinite;
     }
-
+ 
     @keyframes pulse {
       0%, 100% { width: 60%; }
       50% { width: 90%; }
     }
-
+ 
     .results {
       background: #f0f0f0;
       padding: 16px;
       border-radius: 8px;
       margin-bottom: 16px;
     }
-
+ 
     .detected-date {
       font-size: 18px;
       font-weight: 500;
@@ -187,7 +198,7 @@
       border-radius: 4px;
       margin-bottom: 12px;
     }
-
+ 
     .error {
       background: #fff0f0;
       border: 0.5px solid #ffcccc;
@@ -196,7 +207,7 @@
       border-radius: 8px;
       margin-bottom: 16px;
     }
-
+ 
     .food-item {
       border: 0.5px solid #ddd;
       border-radius: 8px;
@@ -206,45 +217,45 @@
       justify-content: space-between;
       align-items: center;
     }
-
+ 
     .food-item.expiring-soon {
       background: #fffaeb;
       border-color: #ffd700;
     }
-
+ 
     .food-item.expiring-today {
       background: #fff0f0;
       border-color: #ffcccc;
     }
-
+ 
     .food-info h3 {
       font-size: 15px;
       font-weight: 500;
       margin-bottom: 6px;
     }
-
+ 
     .food-details {
       display: flex;
       gap: 12px;
       font-size: 13px;
       color: #666;
     }
-
+ 
     .days-left {
       text-align: right;
     }
-
+ 
     .days-number {
       font-size: 24px;
       font-weight: 500;
       color: #333;
     }
-
+ 
     .days-label {
       font-size: 12px;
       margin-top: 4px;
     }
-
+ 
     .remove-btn {
       margin-top: 8px;
       padding: 4px 8px;
@@ -253,38 +264,48 @@
       border: 0.5px solid #ddd;
       cursor: pointer;
     }
-
+ 
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-bottom: 24px;
     }
-
+ 
     .stat-card {
       background: #f0f0f0;
       padding: 16px;
       border-radius: 8px;
       text-align: center;
     }
-
+ 
     .stat-label {
       font-size: 13px;
       color: #666;
       margin-bottom: 6px;
     }
-
+ 
     .stat-number {
       font-size: 24px;
       font-weight: 500;
       color: #333;
     }
-
+ 
     .empty-state {
       text-align: center;
       color: #999;
       padding: 32px 16px;
       font-size: 14px;
+    }
+ 
+    .debug-info {
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 16px;
+      display: none;
     }
   </style>
 </head>
@@ -294,7 +315,7 @@
       <h1>Food Freshness Tracker</h1>
       <p>AI-powered expiration date detection from photos</p>
     </div>
-
+ 
     <div class="card">
       <h2>Add Food Item</h2>
       
@@ -302,24 +323,24 @@
         <button id="cameraBtn">📷 Take Photo</button>
         <button id="manualBtn">✏️ Manual Entry</button>
       </div>
-
+ 
       <div id="cameraContainer" class="hidden">
-        <div class="camera-placeholder" id="cameraPlaceholder">Click "Start Camera" below</div>
-        <video id="videoPreview" class="hidden"></video>
-        <canvas id="photoCanvas" class="hidden"></canvas>
-
+        <div class="camera-placeholder" id="cameraPlaceholder">Ready to start camera</div>
+        <video id="videoPreview" playsinline autoplay muted></video>
+        <canvas id="photoCanvas"></canvas>
+ 
         <div class="button-group">
           <button id="startCameraBtn">Start Camera</button>
           <button id="captureBtn" class="hidden">📸 Capture</button>
         </div>
-
+ 
         <div id="processingStatus" class="status hidden">
           <p>Processing image with Claude AI...</p>
           <div class="progress-bar">
             <div class="progress-fill"></div>
           </div>
         </div>
-
+ 
         <div id="ocrResults" class="results hidden">
           <p style="font-size: 13px; color: #666; margin-bottom: 8px;">Claude detected:</p>
           <div class="detected-date" id="detectedDate"></div>
@@ -328,7 +349,7 @@
             <label>Food Name</label>
             <input type="text" id="foodNameOcr" placeholder="e.g., Milk, Yogurt">
           </div>
-
+ 
           <div class="input-group">
             <label>Storage</label>
             <select id="storageOcr">
@@ -337,22 +358,22 @@
               <option>Pantry</option>
             </select>
           </div>
-
+ 
           <button id="confirmOcrBtn" style="width: 100%;">Add Item</button>
         </div>
-
+ 
         <div id="ocrError" class="error hidden">
           <p>Could not detect date. Please enter manually or retake photo.</p>
           <button id="retryBtn" style="width: 100%; margin-top: 8px;">Try Again</button>
         </div>
       </div>
-
+ 
       <div id="manualContainer" class="hidden">
         <div class="input-group">
           <label>Food Name</label>
           <input type="text" id="foodName" placeholder="e.g., Milk, Spinach">
         </div>
-
+ 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
           <div class="input-group" style="margin-bottom: 0;">
             <label>Expiration Date</label>
@@ -367,16 +388,16 @@
             </select>
           </div>
         </div>
-
+ 
         <button id="addBtn" style="width: 100%;">Add Item</button>
       </div>
     </div>
-
+ 
     <div class="card">
       <h2>Your Food</h2>
       <div id="foodList" class="empty-state">No items yet. Take a photo or add manually!</div>
     </div>
-
+ 
     <div class="stats">
       <div class="stat-card">
         <div class="stat-label">Total Items</div>
@@ -388,14 +409,13 @@
       </div>
     </div>
   </div>
-
+ 
   <script>
     let foodItems = [];
     let stream = null;
     let capturedImageData = null;
     let apiEndpoint = '/api/extract-date';
-
-    // DOM Elements
+ 
     const cameraBtn = document.getElementById('cameraBtn');
     const manualBtn = document.getElementById('manualBtn');
     const cameraContainer = document.getElementById('cameraContainer');
@@ -411,59 +431,80 @@
     const addBtn = document.getElementById('addBtn');
     const confirmOcrBtn = document.getElementById('confirmOcrBtn');
     const retryBtn = document.getElementById('retryBtn');
-
-    // Event Listeners
+ 
     cameraBtn.addEventListener('click', () => {
       cameraContainer.classList.remove('hidden');
       manualContainer.classList.add('hidden');
     });
-
+ 
     manualBtn.addEventListener('click', () => {
       manualContainer.classList.remove('hidden');
       cameraContainer.classList.add('hidden');
       document.getElementById('foodName').focus();
     });
-
+ 
     startCameraBtn.addEventListener('click', async () => {
       try {
-        stream = await navigator.mediaDevices.getUserMedia({ 
-          video: { facingMode: 'environment' } 
-        });
+        startCameraBtn.textContent = 'Requesting camera...';
+        startCameraBtn.disabled = true;
+ 
+        const constraints = {
+          video: {
+            facingMode: 'environment',
+            width: { ideal: 1280 },
+            height: { ideal: 720 }
+          },
+          audio: false
+        };
+ 
+        stream = await navigator.mediaDevices.getUserMedia(constraints);
+        
         videoPreview.srcObject = stream;
-        videoPreview.classList.remove('hidden');
+        videoPreview.onloadedmetadata = () => {
+          videoPreview.play();
+        };
+ 
         cameraPlaceholder.classList.add('hidden');
         captureBtn.classList.remove('hidden');
-        startCameraBtn.textContent = 'Camera Active';
-        startCameraBtn.disabled = true;
+        startCameraBtn.textContent = 'Camera Active ✓';
+        startCameraBtn.style.background = '#e8f5e9';
       } catch (err) {
-        alert('Camera access denied. Please enable camera permissions in settings.');
+        startCameraBtn.disabled = false;
+        startCameraBtn.textContent = 'Start Camera';
+        console.error('Camera error:', err);
+        alert('Camera error: ' + err.message + '\n\nTry:\n1. Refresh the page\n2. Check camera permissions in browser settings\n3. Use a different browser (Chrome/Firefox)');
       }
     });
-
+ 
     captureBtn.addEventListener('click', async () => {
-      const context = photoCanvas.getContext('2d');
-      photoCanvas.width = videoPreview.videoWidth;
-      photoCanvas.height = videoPreview.videoHeight;
-      context.drawImage(videoPreview, 0, 0);
-      
-      photoCanvas.classList.remove('hidden');
-      videoPreview.classList.add('hidden');
-      captureBtn.textContent = 'Retake Photo';
-      
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop());
-        stream = null;
+      try {
+        const context = photoCanvas.getContext('2d');
+        photoCanvas.width = videoPreview.videoWidth;
+        photoCanvas.height = videoPreview.videoHeight;
+        context.drawImage(videoPreview, 0, 0);
+        
+        photoCanvas.style.display = 'block';
+        videoPreview.style.display = 'none';
+        captureBtn.textContent = 'Retake Photo';
+        
+        if (stream) {
+          stream.getTracks().forEach(track => track.stop());
+          stream = null;
+        }
+        
+        capturedImageData = photoCanvas.toDataURL('image/jpeg', 0.9);
+        
+        processingStatus.classList.remove('hidden');
+        ocrResults.classList.add('hidden');
+        ocrError.classList.add('hidden');
+        
+        await processImageWithBackend(capturedImageData);
+      } catch (err) {
+        console.error('Capture error:', err);
+        alert('Error capturing photo: ' + err.message);
       }
-      
-      capturedImageData = photoCanvas.toDataURL('image/jpeg');
-      
-      processingStatus.classList.remove('hidden');
-      ocrResults.classList.add('hidden');
-      ocrError.classList.add('hidden');
-      
-      await processImageWithBackend(capturedImageData);
     });
-
+ 
     async function processImageWithBackend(imageData) {
       try {
         const response = await fetch(apiEndpoint, {
@@ -473,7 +514,7 @@
           },
           body: JSON.stringify({ imageData }),
         });
-
+ 
         const data = await response.json();
         processingStatus.classList.add('hidden');
         
@@ -491,18 +532,19 @@
         console.error('Error processing image:', error);
       }
     }
-
+ 
     retryBtn.addEventListener('click', () => {
       ocrError.classList.add('hidden');
-      photoCanvas.classList.add('hidden');
+      photoCanvas.style.display = 'none';
       photoCanvas.getContext('2d').clearRect(0, 0, photoCanvas.width, photoCanvas.height);
       cameraPlaceholder.classList.remove('hidden');
       captureBtn.classList.add('hidden');
       startCameraBtn.textContent = 'Start Camera';
       startCameraBtn.disabled = false;
+      startCameraBtn.style.background = 'white';
       captureBtn.textContent = '📸 Capture';
     });
-
+ 
     function calculateDaysUntilExpiry(dateString) {
       const date = new Date(dateString);
       const today = new Date();
@@ -510,19 +552,19 @@
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       return Math.max(1, diffDays);
     }
-
+ 
     confirmOcrBtn.addEventListener('click', () => {
       const foodName = document.getElementById('foodNameOcr').value.trim();
       const expiryDateStr = document.getElementById('detectedDate').textContent;
       const storage = document.getElementById('storageOcr').value;
-
+ 
       if (!foodName) {
         alert('Please enter a food name');
         return;
       }
-
+ 
       const daysLeft = calculateDaysUntilExpiry(expiryDateStr);
-
+ 
       const newItem = {
         id: Date.now(),
         name: foodName,
@@ -531,11 +573,11 @@
         expiryDate: expiryDateStr,
         addedDate: new Date()
       };
-
+ 
       foodItems.push(newItem);
       
       ocrResults.classList.add('hidden');
-      photoCanvas.classList.add('hidden');
+      photoCanvas.style.display = 'none';
       photoCanvas.getContext('2d').clearRect(0, 0, photoCanvas.width, photoCanvas.height);
       document.getElementById('foodNameOcr').value = '';
       document.getElementById('detectedDate').textContent = '';
@@ -543,33 +585,34 @@
       captureBtn.classList.add('hidden');
       startCameraBtn.textContent = 'Start Camera';
       startCameraBtn.disabled = false;
+      startCameraBtn.style.background = 'white';
       
       renderFoodList();
       updateStats();
     });
-
+ 
     addBtn.addEventListener('click', () => {
       const name = document.getElementById('foodName').value.trim();
       const expiryDateInput = document.getElementById('expirationDate').value;
       const storage = document.getElementById('storage').value;
-
+ 
       if (!name) {
         alert('Please enter a food name');
         return;
       }
-
+ 
       if (!expiryDateInput) {
         alert('Please select an expiration date');
         return;
       }
-
+ 
       const daysLeft = calculateDaysUntilExpiry(expiryDateInput);
       const expiryDate = new Date(expiryDateInput).toLocaleDateString('en-US', { 
         month: 'short', 
         day: 'numeric', 
         year: 'numeric' 
       });
-
+ 
       const item = {
         id: Date.now(),
         name: name,
@@ -578,7 +621,7 @@
         expiryDate: expiryDate,
         addedDate: new Date()
       };
-
+ 
       foodItems.push(item);
       
       document.getElementById('foodName').value = '';
@@ -587,17 +630,17 @@
       renderFoodList();
       updateStats();
     });
-
+ 
     document.getElementById('foodName').addEventListener('keypress', (e) => {
       if (e.key === 'Enter') addBtn.click();
     });
-
+ 
     function removeFoodItem(id) {
       foodItems = foodItems.filter(item => item.id !== id);
       renderFoodList();
       updateStats();
     }
-
+ 
     function renderFoodList() {
       const list = document.getElementById('foodList');
       
@@ -605,7 +648,7 @@
         list.innerHTML = '<div class="empty-state">No items yet. Take a photo or add manually!</div>';
         return;
       }
-
+ 
       const sortedItems = [...foodItems].sort((a, b) => a.daysLeft - b.daysLeft);
       
       list.innerHTML = sortedItems.map(item => {
@@ -619,7 +662,7 @@
           className += ' expiring-soon';
           urgencyLabel = 'Use soon';
         }
-
+ 
         return `
           <div class="${className}">
             <div class="food-info">
@@ -638,7 +681,7 @@
         `;
       }).join('');
     }
-
+ 
     function updateStats() {
       const totalItems = foodItems.length;
       const expiringSoon = foodItems.filter(item => item.daysLeft <= 3).length;
@@ -646,8 +689,7 @@
       document.getElementById('totalItems').textContent = totalItems;
       document.getElementById('expiringSoon').textContent = expiringSoon;
     }
-
-    // Demo data
+ 
     foodItems.push({
       id: 1,
       name: 'Milk',
@@ -656,11 +698,10 @@
       expiryDate: 'Dec 15, 2024',
       addedDate: new Date()
     });
-
+ 
     renderFoodList();
     updateStats();
-
-    // Make removeFoodItem globally available
+ 
     window.removeFoodItem = removeFoodItem;
   </script>
 </body>
